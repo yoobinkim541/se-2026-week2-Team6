@@ -33,6 +33,9 @@ public class Node {
             for (Node child : currentNode.children) {
                 queue.add(child);
             }
+        }
+    }
+
     public boolean hasChild(Node child){
         return !children.isEmpty();
     }
