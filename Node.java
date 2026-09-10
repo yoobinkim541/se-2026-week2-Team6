@@ -54,4 +54,43 @@ public class Node {
             return maxHeight + 1;
         }
     }
+
+    public static void BFS(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        List<Node> visited = new ArrayList<Node>();
+        visited.add(root);
+
+        while (!queue.isEmpty()) {
+            Node currentNode = queue.poll();
+            System.out.println(currentNode.label);
+
+            for (Node child : currentNode.children) {
+                if (!visited.contains(child)) {
+                    visited.add(child);
+                    queue.add(child);
+                }
+            }
+        }
+    }
+
+    public static void DFS(Node currentNode, List<Node> visited) {
+        if (currentNode == null) {
+            return;
+        }
+
+        System.out.printf("visited %s.\n", currentNode.label);
+        visited.add(currentNode);
+
+        for (Node child : currentNode.children) {
+            if (!visited.contains(child)) {
+                DFS(child, visited);
+            }
+        }
+    }
 }
