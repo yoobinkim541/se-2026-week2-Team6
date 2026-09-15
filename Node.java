@@ -18,24 +18,6 @@ public class Node {
         this.children.add(child);
     }
 
-    public void BFS(Node root) {
-        if (root == null) {
-            return;
-        }
-
-        Queue<Node> queue = new ArrayDeque<>();
-        queue.add(root);
-
-        while (!queue.isEmpty()) {
-            Node currentNode = queue.poll();
-            System.out.println(currentNode.label);
-
-            for (Node child : currentNode.children) {
-                queue.add(child);
-            }
-        }
-    }
-
     public boolean hasChild(Node child){
         return !children.isEmpty();
     }
